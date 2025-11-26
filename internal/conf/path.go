@@ -15,7 +15,7 @@ import (
 	"github.com/bluenviron/mediamtx/internal/logger"
 )
 
-var rePathName = regexp.MustCompile(`^[0-9a-zA-Z_\-/\.~:]+$`)
+var rePathName = regexp.MustCompile(`^[0-9a-zA-Z_\-/\.~:=]+$`)
 
 // IsValidPathName checks whether the path name is valid.
 func IsValidPathName(name string) error {
@@ -32,7 +32,7 @@ func IsValidPathName(name string) error {
 	}
 
 	if !rePathName.MatchString(name) {
-		return fmt.Errorf("can contain only alphanumeric characters, underscore, dot, tilde, minus, slash, colon")
+		return fmt.Errorf("can contain only alphanumeric characters, underscore, dot, tilde, minus, slash, colon, equals")
 	}
 
 	return nil
